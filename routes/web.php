@@ -9,6 +9,7 @@ use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DecisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::get('/', [PublicController::class, 'index']);
+//
+// 
 
 Route::middleware('only_guest')->group(function() {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -42,6 +45,7 @@ Route::middleware('only_admin')->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index']);
 
     Route::get('books', [BookController::class, 'index']);
+    Route::get('book-detail', [BookController::class, 'detail']);
     Route::get('book-add', [BookController::class, 'add']);
     Route::post('book-add', [BookController::class, 'store']);
     Route::get('book-edit/{slug}', [BookController::class, 'edit']);
@@ -50,6 +54,7 @@ Route::middleware('only_admin')->group(function() {
     Route::get('book-destroy/{slug}', [BookController::class, 'destroy']);
     Route::get('book-deleted', [BookController::class, 'deletedBook']);
     Route::get('book-restore/{slug}', [BookController::class, 'restore']);
+    // Route::get('shows', [BookController::class, 'showHasil']);
 
     Route::get('categories', [CategoryController::class, 'index']);
     Route::get('category-add', [CategoryController::class, 'add']);
@@ -77,6 +82,12 @@ Route::middleware('only_admin')->group(function() {
 
     Route::get('book-return', [BookRentController::class, 'returnBook']);
     Route::post('book-return', [BookRentController::class, 'SaveReturnBook']);
+
+    Route::get('alternative', [DecisionController::class, 'showAlternatif']);
+    Route::get('criteria', [DecisionController::class, 'showKriteria']);
+    Route::get('normal', [DecisionController::class, 'showNormal']);
+    Route::get('final', [DecisionController::class, 'showHasil']);
+
 
 });
 

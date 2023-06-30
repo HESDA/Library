@@ -14,6 +14,12 @@ class BookController extends Controller
         return view('book', ['books' => $books]);
     }
 
+    public function detail()
+    {
+        $books = Book::all();
+        return view('book-detail', ['books' => $books]);
+    }
+
     public function add()
     {
         $categories = Category::all();
@@ -24,8 +30,15 @@ class BookController extends Controller
     {
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
-            'title' => 'required|max:255'
-        ]);
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'rating' => 'required|numeric|between:1,5',
+            'price' => 'required|numeric|min:1000|max:10000',
+            'pages' => 'required|numeric|min:10|max:100',
+            'publication_year' => 'required|numeric|min:1900|max:2024',
+            'rent_duration' => 'required|numeric|min:1|max:7',
+            'topic_suitability' => 'required|numeric|min:1|max:10'
+        ]);        
 
         $newName = '';
         if($request->file('image')) {
@@ -91,4 +104,5 @@ class BookController extends Controller
         $book->restore();
         return redirect('books')->with('status', 'Book Restored Successfully');
     }
+
 }

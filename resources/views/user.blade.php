@@ -6,7 +6,7 @@
     <h1>List User</h1>
 
     <div class="mt-5 d-flex justify-content-end">
-        <a href="/user-banned" class="btn btn-secondary me-3">View Banned Users</a>
+        <a href="/user-banned" class="btn btn-success me-3">View Banned Users</a>
         <a href="/registered-users" class="btn btn-primary">New Registered User</a>
     </div>
 
@@ -15,12 +15,12 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif    
+        @endif
     </div>
 
     <div class="my-5">
         <table class="table">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>No.</th>
                     <th>Username</th>
@@ -41,8 +41,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="/user-detail/{{$item->slug}}">detail</a>
-                            <a href="/user-ban/{{$item->slug}}">ban user</a>
+                            <a href="/user-detail/{{ $item->slug }}" class="btn btn-dark">detail</a>
+                            <a href="/user-ban/{{ $item->slug }}" class="btn btn-danger">ban user</a>
                         </td>
                     </tr>
                 @endforeach

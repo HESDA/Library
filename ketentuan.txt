@@ -1,0 +1,32 @@
+rating 			 : 1-5
+price  		 	 : 1000-10000
+pages  			 : 10-100
+publication_year : 2000-2024
+rent_duration	 : 1-7
+topic_suatibility: 1-10
+
+SELECT
+    harga,
+    kualitas,
+    fitur,
+    populer,
+    pj,
+    keawetan,
+
+    CASE WHEN label('harga') = 'cost' THEN MIN(harga) ELSE MAX(harga) END AS pem_harga,
+    CASE WHEN label('kualitas') = 'cost' THEN MIN(kualitas) ELSE MAX(kualitas) END AS pem_kualitas,
+    CASE WHEN label('fitur') = 'cost' THEN MIN(fitur) ELSE MAX(fitur) END AS pem_fitur,
+    CASE WHEN label('populer') = 'cost' THEN MIN(populer) ELSE MAX(populer) END AS pem_populer,
+    CASE WHEN label('pj') = 'cost' THEN MIN(pj) ELSE MAX(pj) END AS pem_pj,
+    CASE WHEN label('keawetan') = 'cost' THEN MIN(keawetan) ELSE MAX(keawetan) END AS pem_keawetan,
+
+    CASE WHEN label('harga') = 'cost' THEN MIN(harga) / harga ELSE harga / MAX(harga) END AS norm_harga,
+    CASE WHEN label('kualitas') = 'cost' THEN MIN(kualitas) / kualitas ELSE kualitas / MAX(kualitas) END AS norm_kualitas,
+    CASE WHEN label('fitur') = 'cost' THEN MIN(fitur) / fitur ELSE fitur / MAX(fitur) END AS norm_fitur,
+    CASE WHEN label('populer') = 'cost' THEN MIN(populer) / populer ELSE populer / MAX(populer) END AS norm_populer,
+    CASE WHEN label('pj') = 'cost' THEN MIN(pj) / pj ELSE pj / MAX(pj) END AS norm_pj,
+    CASE WHEN label('keawetan') = 'cost' THEN MIN(keawetan) / keawetan ELSE keawetan / MAX(keawetan) END AS norm_keawetan,
+    
+    (bobot('harga') * norm_harga) + (bobot('kualitas') * norm_kualitas) + (bobot('fitur') * norm_fitur) + (bobot('populer') * norm_populer) + (bobot('pj') * norm_pj) + (bobot('keawetan') * norm_keawetan) AS hasil
+FROM
+    nama_tabel

@@ -6,7 +6,7 @@
     <h1>Book List</h1>
 
     <div class="my-5 d-flex justify-content-end">
-        <a href="book-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
+        <a href="book-deleted" class="btn btn-success me-3">View Deleted Data</a>
         <a href="book-add" class="btn btn-primary">Add Data</a>
     </div>
 
@@ -15,12 +15,12 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif    
+        @endif
     </div>
 
     <div class="my-5">
         <table class="table">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>No.</th>
                     <th>Code</th>
@@ -43,11 +43,12 @@
                         </td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="/book-edit/{{$item->slug}}">edit</a>
-                            <a href="/book-delete/{{$item->slug}}">delete</a>
+                            <a href="/book-edit/{{ $item->slug }}" class="btn btn-dark">edit</a>
+                            <a href="/book-detail" class="btn btn-secondary">Detail</a>
+                            <a href="/book-delete/{{ $item->slug }}" class="btn btn-danger">delete</a>
                         </td>
                     </tr>
-                    @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>
