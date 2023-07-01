@@ -27,6 +27,9 @@ use App\Http\Controllers\DecisionController;
 // });
 
 Route::get('/', [PublicController::class, 'index']);
+Route::get('/link', function() {
+    Artisan::call('storage:link');
+});
 //
 // 
 
