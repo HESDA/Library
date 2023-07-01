@@ -8,7 +8,7 @@
 
     <h1>Add New Book</h1>
     <div class="my-5 d-flex justify-content-end">
-        <a href=/books" class="btn btn-dark me-3">Back</a>
+        <a href="{{ url('books') }}" class="btn btn-dark me-3">Back</a>
     </div>
     <div class="mt-5 w-50">
         @if ($errors->any())

@@ -6,8 +6,8 @@
     <h1>List User</h1>
 
     <div class="mt-5 d-flex justify-content-end">
-        <a href="/user-banned" class="btn btn-success me-3">View Banned Users</a>
-        <a href="/registered-users" class="btn btn-primary">New Registered User</a>
+        <a href="{{ url('user-banned') }}" class="btn btn-success me-3">View Banned Users</a>
+        <a href="{{ url('registered-users') }}" class="btn btn-primary">New Registered User</a>
     </div>
 
     <div class="mt-5">
@@ -41,8 +41,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="/user-detail/{{ $item->slug }}" class="btn btn-dark">detail</a>
-                            <a href="/user-ban/{{ $item->slug }}" class="btn btn-danger">ban user</a>
+                            <a href="{{ url('user-detail/' . $item->slug) }}" class="btn btn-dark">detail</a>
+                            <a href="{{ url('user-ban/' . $item->slug) }}" class="btn btn-danger">ban user</a>
                         </td>
                     </tr>
                 @endforeach

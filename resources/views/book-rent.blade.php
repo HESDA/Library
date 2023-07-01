@@ -19,7 +19,7 @@
             @endif
         </div>
 
-        <form action="book-rent" method="post">
+        <form action="{{ url('book-rent') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="user" class="form-label">User</label>

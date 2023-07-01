@@ -16,18 +16,19 @@
                 </ul>
             </div>
         @endif
-        <form action="/category-edit/{{$category->slug}}" method="post">
+        <form action="{{ url('category-edit/' . $category->slug) }}" method="post">
             @csrf
             @method('put')
             <div>
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{$category->name}}" placeholder="Category Name">
+                <input type="text" name="name" id="name" class="form-control" value="{{ $category->name }}"
+                    placeholder="Category Name">
             </div>
-            
+
             <div class="mt-3">
                 <button class="btn btn-success" type="submit">Update</button>
             </div>
         </form>
     </div>
-    
+
 @endsection

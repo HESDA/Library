@@ -62,38 +62,43 @@
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo03">
                     @auth
                         @if (Auth::user()->role_id == 1)
-                            <a href="/dashboard"
+                            <a href="{{ url('dashboard') }}"
                                 class="{{ request()->route()->uri == 'dashboard' ? 'active' : '' }}">Dashboard</a>
-                            <a href="/books"
+                            <a href="{{ url('books') }}"
                                 class="{{ request()->route()->uri == 'books' || request()->route()->uri == 'book-add' || request()->route()->uri == 'book-deleted' || request()->route()->uri == 'book-edit/{slug}' || request()->route()->uri == 'book-delete/{slug}' ? 'active' : '' }}">Books</a>
-                            <a href="/categories"
+                            <a href="{{ url('categories') }}"
                                 class="{{ request()->route()->uri == 'categories' || request()->route()->uri == 'category-add' || request()->route()->uri == 'category-deleted' || request()->route()->uri == 'category-edit/{slug}' || request()->route()->uri == 'category-delete/{slug}' ? 'active' : '' }}">Categories</a>
-                            <a href="/users"
+                            <a href="{{ url('users') }}"
                                 class="{{ request()->route()->uri == 'users' || request()->route()->uri == 'registered-users' || request()->route()->uri == 'user-detail/{slug}' || request()->route()->uri == 'user-delete/{slug}' || request()->route()->uri == 'user-ban/{slug}' || request()->route()->uri == 'user-banned' ? 'active' : '' }}">Users</a>
-                            <a href="/" class="{{ request()->route()->uri == '/' ? 'active' : '' }}">Book List</a>
-                            <a href="/rent-logs" class="{{ request()->route()->uri == 'rent-logs' ? 'active' : '' }}">Rent
+                            <a href="{{ url('/') }}" class="{{ request()->route()->uri == '/' ? 'active' : '' }}">Book
+                                List</a>
+                            <a href="{{ url('rent-logs') }}"
+                                class="{{ request()->route()->uri == 'rent-logs' ? 'active' : '' }}">Rent
                                 Log</a>
-                            <a href="/book-rent" class="{{ request()->route()->uri == 'book-rent' ? 'active' : '' }}">Book
+                            <a href="{{ url('book-rent') }}"
+                                class="{{ request()->route()->uri == 'book-rent' ? 'active' : '' }}">Book
                                 Rent</a>
-                            <a href="/book-return"
+                            <a href="{{ url('book-return') }}"
                                 class="{{ request()->route()->uri == 'book-return' ? 'active' : '' }}">Book Return</a>
-                            <a href="/alternative"
+                            <a href="{{ url('alternative') }}"
                                 class="{{ request()->route()->uri == 'alternative' ? 'active' : '' }}">Alternatif</a>
-                            <a href="/criteria"
+                            <a href="{{ url('criteria') }}"
                                 class="{{ request()->route()->uri == 'criteria' ? 'active' : '' }}">Kriteria</a>
-                            <a href="/normal"
+                            <a href="{{ url('normal') }}"
                                 class="{{ request()->route()->uri == 'normal' ? 'active' : '' }}">Normalisasi</a>
-                            <a href="/final" class="{{ request()->route()->uri == 'final' ? 'active' : '' }}">Final
+                            <a href="{{ url('final') }}"
+                                class="{{ request()->route()->uri == 'final' ? 'active' : '' }}">Final
                                 Rank</a>
-                            <a href="/logout">Logout</a>
+                            <a href="{{ url('logout') }}">Logout</a>
                         @else
-                            <a href="/profile"
+                            <a href="{{ url('profile') }}"
                                 class="{{ request()->route()->uri == 'profile' ? 'active' : '' }}">Profile</a>
-                            <a href="/" class="{{ request()->route()->uri == '/' ? 'active' : '' }}">Book List</a>
-                            <a href="/logout">Logout</a>
+                            <a href="{{ url('/') }}"
+                                class="{{ request()->route()->uri == '/' ? 'active' : '' }}">Book List</a>
+                            <a href="{{ url('logout') }}">Logout</a>
                         @endif
                     @else
-                        <a href="{{ Route('login') }}" class="btn btn-secondary">Login</a>
+                        <a href="{{ url('login') }}" class="btn btn-secondary">Login</a>
                     @endauth
                 </div>
                 <div class="content p-5 col-lg-10">

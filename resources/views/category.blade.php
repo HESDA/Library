@@ -33,8 +33,8 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->name }}</td>
                         <td>
-                            <a href="category-edit/{{ $item->slug }}" class="btn btn-dark">edit</a>
-                            <a href="category-delete/{{ $item->slug }}" class="btn btn-danger">delete</a>
+                            <a href="{{ url('category-edit/'. $item->slug) }}" class="btn btn-dark">edit</a>
+                            <a href="{{ url('category-delete/'.$ite,->slug) }}" class="btn btn-danger">delete</a>
                         </td>
                     </tr>
                 @endforeach

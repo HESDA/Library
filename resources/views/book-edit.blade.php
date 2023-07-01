@@ -8,7 +8,7 @@
 
     <h1>Edit Book</h1>
     <div class="my-5 d-flex justify-content-end">
-        <a href="/books" class="btn btn-dark me-3">Back</a>
+        <a href="{{ url('books') }}" class="btn btn-dark me-3">Back</a>
     </div>
     <div class="mt-5 w-50">
         @if ($errors->any())
@@ -20,7 +20,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/book-edit/{{ $book->slug }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url('book-edit/' . $book->slug) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="code" class="form-label">Code</label>

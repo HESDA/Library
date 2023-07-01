@@ -10,7 +10,7 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif    
+        @endif
     </div>
 
     <div class="my-5">
@@ -36,7 +36,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="/user-restore/{{$item->slug}}">restore</a>
+                            <a href="{{ url('user-restore/' . $item->slug) }}">restore</a>
                         </td>
                     </tr>
                 @endforeach

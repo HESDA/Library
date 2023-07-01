@@ -6,7 +6,7 @@
     <h1>Kriteria SAW</h1>
 
     <div class="my-5 d-flex justify-content-end">
-        <a href="book-add" class="btn btn-primary">Add Data</a>
+        <a href="{{ url('book-add') }}" class="btn btn-primary">Add Data</a>
     </div>
 
     <div class="mt-5">

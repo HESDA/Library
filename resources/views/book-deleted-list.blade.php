@@ -6,7 +6,7 @@
     <h1>Deleted Book List</h1>
 
     <div class="mt-5 d-flex justify-content-end">
-        <a href="/books" class="btn btn-primary">Back</a>
+        <a href="{{ url('books') }}" class="btn btn-primary">Back</a>
     </div>
 
     <div class="mt-5">
@@ -14,7 +14,7 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif    
+        @endif
     </div>
 
     <div class="my-5">
@@ -29,14 +29,14 @@
             </thead>
             <tbody>
                 @foreach ($deletedBooks as $item)
-                <tr>
-                    <td>{{ $loop->iteration}}</td>
-                    <td>{{ $item->book_code }}</td>
-                    <td>{{ $item->title }}</td>
-                    <td>
-                        <a href="/book-restore/{{$item->slug}}">restore</a>
-                    </td>
-                </tr>    
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->book_code }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>
+                            <a href="{{ url('book-restore/' . $item->slug) }}">restore</a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

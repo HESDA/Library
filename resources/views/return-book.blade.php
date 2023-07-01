@@ -18,7 +18,7 @@
                 </div>
             @endif
         </div>
-        <form action="book-return" method="post">
+        <form action="{{ url('book-return') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="user" class="form-label">User</label>

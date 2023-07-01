@@ -26,13 +26,13 @@
                         <td>{{ $item->username }}</td>
                         <td>
                             @if ($item->phone)
-                                {{ $item->phone}}
+                                {{ $item->phone }}
                             @else
                                 -
-                            @endif    
-                        </td>                        
+                            @endif
+                        </td>
                         <td>
-                            <a href="/user-detail/{{$item->slug}}">detail</a>
+                            <a href="{{ url('user-detail/' . $item->slug) }}">detail</a>
                         </td>
                     </tr>
                 @endforeach

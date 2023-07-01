@@ -6,7 +6,7 @@
     <h1>Book Detail</h1>
 
     <div class="my-5 d-flex justify-content-end">
-        <a href="/books" class="btn btn-dark me-3">Back</a>
+        <a href="{{ url('books') }}" class="btn btn-dark me-3">Back</a>
     </div>
     <div class="my-5">
         <table class="table">
