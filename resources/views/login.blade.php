@@ -40,11 +40,11 @@
             <form action="" method="post">
                 @csrf
                 <div>
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label">Username: admin</label>
                     <input type="text" name="username" id="username" class="form-control" required>
                 </div>
                 <div>
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password: password</label>
                     <input type="password" name="password" id="password" class="form-control" required>
                 </div>
                 <div>
